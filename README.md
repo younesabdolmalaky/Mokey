@@ -1,4 +1,5 @@
 # Mokey Species classification
+![primate_collage](https://user-images.githubusercontent.com/75095471/218704518-b58d496a-19a1-4d4d-8a2e-b49b71de7ac3.jpg)
 ## Species classification using color and texture features
 <b>Reading images:</b> The code reads images from the given directories and converts them to grayscale. It also extracts the hue and Haralick texture features from each image using OpenCV and Mahotas libraries.
 
@@ -28,14 +29,14 @@ The model is compiled with an Adam optimizer, categorical cross-entropy loss fun
 In conclusion, this code provides an example of how to build and train an image classification model using a convolutional neural network in Keras with TensorFlow. It demonstrates the importance of data augmentation to improve the model's accuracy and how to monitor the training progress using the fit() method.
 
 
-## Transfer Learning with VGG16 for Species Classification
+## Transfer Learning with VGG16 and VGG19 for Species Classification
 
-the code uses transfer learning with the pre-trained VGG16 model for image classification on a custom dataset. The VGG16 model is loaded with pre-trained weights on the ImageNet dataset and its top layer is removed to be replaced with custom layers for our specific classification task.
+the code uses transfer learning with the pre-trained VGG16 and VGG19 model for image classification on a custom dataset. The VGG16 and VGG19 model is loaded with pre-trained weights on the ImageNet dataset and its top layer is removed to be replaced with custom layers for our specific classification task.
 
 The custom model consists of a Flatten layer, followed by a Dense layer with 256 units and ReLU activation function, a Dropout layer with a rate of 0.5 to prevent overfitting, and finally a Dense layer with 10 units and Softmax activation function for multi-class classification. The model is then compiled with the Adam optimizer, categorical cross-entropy loss, and accuracy metrics.
 
 Two ImageDataGenerators are used for data augmentation on the training and validation datasets. These generators perform image rescaling and apply various transformation techniques, including zooming and shifting, to increase the size and diversity of the training set.
-The model is trained using the fit_generator method, which takes the training and validation data generators as inputs and trains the model for 30 epochs. At each epoch, the validation data is also evaluated, and the metrics are printed out. Finally, the classification report from scikit-learn is imported to evaluate the model's performance.
+The model is trained using the fit_generator method, which takes the training and validation data generators as inputs and trains the VGG16 model for 30 epochs and VGG19 for 200. At each epoch, the validation data is also evaluated, and the metrics are printed out. Finally, the classification report from scikit-learn is imported to evaluate the model's performance.
 
 <table>
   <tr>
@@ -54,7 +55,10 @@ The model is trained using the fit_generator method, which takes the training an
     <td>VGG16</td>
     <td>72</td>
   </tr>
+   <tr>
+    <td>VGG19</td>
+    <td>92</td>
+  </tr>
 </table>
 
-![download (7)](https://user-images.githubusercontent.com/75095471/218695742-79fc2d36-1722-45b8-9a7b-53799de84d1a.png)
-
+![download (8)](https://user-images.githubusercontent.com/75095471/218705175-cef6958c-e34f-4c29-b854-d3f13420c41d.png)
